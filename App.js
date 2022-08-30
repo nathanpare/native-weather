@@ -1,17 +1,20 @@
-import React, { useEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import * as Location from "expo-location"
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+
+import DateTime from './components/DateTime';
+import WeatherScroll from './components/WeatherScroll';
+
+const img = require("./assets/image.png")
 
 export default function App() {
-  useEffect(() => {
-
-  }, [])
+  const [data, setData] = useState({});
 
   return (
     <View style={styles.container}>
-      <Text>Hello from React Native!</Text>
-      <StatusBar style="auto" />
+      <ImageBackground source={img} style={styles.image} >
+        <DateTime />
+        <WeatherScroll />
+      </ImageBackground>
     </View>
   );
 }
@@ -19,8 +22,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+  }
 });
