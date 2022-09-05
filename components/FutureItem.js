@@ -1,18 +1,16 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
 
-const FutureItem = () => {
-
-  const img = {uri: "http://openweathermap.org/img/wn/01d@4x.png"}
+const FutureItem = ({ day, valueDay, valueNight, unit, img }) => {
 
   return (
     <View style={styles.futureItemContainer}>
       <Text style={styles.day}>
-        Tuesday
+        {day}
       </Text>
       <Image source={img} style={styles.image}/>
-      <Text style={styles.temp}>Night 26&#176;C</Text>
-      <Text style={styles.temp}>Day 36&#176;C</Text>
+      <Text style={styles.temp}>{valueDay}{unit}</Text>
+      <Text style={styles.temp}>{valueNight}{unit}</Text>
     </View>
   )
 }
